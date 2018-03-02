@@ -88,8 +88,8 @@ class YatzyTest < Test::Unit::TestCase
     assert 0 == Yatzy.largeStraight(1,2,2,4,5)
   end
 
-  def test_fullHouse()
-    assert 18 == Yatzy.fullHouse(6,2,2,2,6)
-    assert 0 == Yatzy.fullHouse(2,3,4,5,6)
+  def test_full_house()
+    assert 18 == Yatzy.full_house(6,2,2,2,6)
+    assert 0 == Yatzy.full_house(2,3,4,5,6)
   end
 end
