@@ -76,12 +76,12 @@ class Yatzy
   end
 
   def self.full_house(*dice)
-    pairs = find_groups(2, *dice)
     threes = find_groups(3, *dice)
+    pairs = find_groups(2, *dice) - threes
 
     return 0 unless pairs.length == 1 && threes.length == 1
 
-    pairs * 2 + threes * 3
+    pairs.first * 2 + threes.first * 3
   end
 
   private
