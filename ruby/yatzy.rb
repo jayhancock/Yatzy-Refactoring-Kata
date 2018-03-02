@@ -23,8 +23,11 @@ class Yatzy
   end
 
   def self.ones( d1,  d2,  d3,  d4,  d5)
-    dice = [d1, d2, d3, d4, d5]
-    dice.select {|d| d == 1}.reduce(0, :+)
+    sames(1, *[d1, d2, d3, d4, d5])
+  end
+
+  def self.sames(number, *dice)
+    dice.select {|d| d == number}.reduce(0, :+)
   end
 
   def self.twos( d1,  d2,  d3,  d4,  d5)
