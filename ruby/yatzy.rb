@@ -48,18 +48,10 @@ class Yatzy
     n_of_a_kind(3, *dice)
   end
 
-  def self.smallStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    (tallies[0] == 1 and
-      tallies[1] == 1 and
-      tallies[2] == 1 and
-      tallies[3] == 1 and
-      tallies[4] == 1) ? 15 : 0
+  def self.smallStraight(*dice)
+    straight = find_straight(*dice)
+
+    straight.first == 1 ? 15 : 0
   end
 
   def self.largeStraight( d1,  d2,  d3,  d4,  d5)
@@ -102,5 +94,16 @@ class Yatzy
 
   def self.find_groups(group_size, *dice)
     (1..6).select { |i| dice.count(i) >= group_size }
+  end
+
+  def self.find_straight(*dice)
+    sorted = dice.sort
+
+    differences = successive_differences(*sorted)
+    differences.uniq.length == 1 && differences.first == 1 ? sorted : []
+  end
+
+  def self.successive_differences(*dice)
+    dice[1..-1].zip(dice[0..-2]).map { |pair| pair.first - pair.last }
   end
 end
