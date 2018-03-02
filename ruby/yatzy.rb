@@ -48,13 +48,13 @@ class Yatzy
     n_of_a_kind(3, *dice)
   end
 
-  def self.smallStraight(*dice)
+  def self.small_straight(*dice)
     straight = find_straight(*dice)
 
     straight.first == 1 ? 15 : 0
   end
 
-  def self.largeStraight(*dice)
+  def self.large_straight(*dice)
     straight = find_straight(*dice)
 
     straight.last == 6 ? 20 : 0
