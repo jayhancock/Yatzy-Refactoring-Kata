@@ -142,6 +142,10 @@ class Yatzy
   end
 
   def self.find_pairs(*dice)
-    (1..6).select {|i| dice.count(i) >= 2}
+    find_groups(2, *dice)
+  end
+
+  def self.find_groups(group_size, *dice)
+    (1..6).select { |i| dice.count(i) >= group_size }
   end
 end
