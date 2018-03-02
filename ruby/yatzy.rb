@@ -31,9 +31,6 @@ class Yatzy
     sames(6, *dice)
   end
 
-  def self.sames(number, *dice)
-    dice.select {|d| d == number}.reduce(0, :+)
-  end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)
     counts = [0]*6
@@ -164,5 +161,11 @@ class Yatzy
     else
       return 0
     end
+  end
+
+  private
+
+  def self.sames(number, *dice)
+    dice.select {|d| d == number}.reduce(0, :+)
   end
 end
