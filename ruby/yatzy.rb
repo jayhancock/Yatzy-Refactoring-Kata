@@ -54,17 +54,10 @@ class Yatzy
     straight.first == 1 ? 15 : 0
   end
 
-  def self.largeStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    if (tallies[1] == 1 and tallies[2] == 1 and tallies[3] == 1 and tallies[4] == 1 and tallies[5] == 1)
-      return 20
-    end
-    return 0
+  def self.largeStraight(*dice)
+    straight = find_straight(*dice)
+
+    straight.last == 6 ? 20 : 0
   end
 
   def self.full_house(*dice)
