@@ -26,49 +26,30 @@ class Yatzy
     sames(1, *dice)
   end
 
+  def self.twos(*dice)
+    sames(2, *dice)
+  end
+
+  def self.threes(*dice)
+    sames(3, *dice)
+  end
+
+  def self.fours(*dice)
+    sames(4, *dice)
+  end
+
+  def self.fives(*dice)
+    sames(5, *dice)
+  end
+
+  def self.sixes(*dice)
+    sames(6, *dice)
+  end
+
   def self.sames(number, *dice)
     dice.select {|d| d == number}.reduce(0, :+)
   end
 
-  def self.twos( d1,  d2,  d3,  d4,  d5)
-    sum = 0
-    if (d1 == 2)
-      sum += 2
-    end
-    if (d2 == 2)
-      sum += 2
-    end
-    if (d3 == 2)
-      sum += 2
-    end
-    if (d4 == 2)
-      sum += 2
-    end
-    if (d5 == 2)
-      sum += 2
-    end
-    return sum
-  end
-
-  def self.threes( d1,  d2,  d3,  d4,  d5)
-    s = 0
-    if (d1 == 3)
-      s += 3
-    end
-    if (d2 == 3)
-      s += 3
-    end
-    if (d3 == 3)
-      s += 3
-    end
-    if (d4 == 3)
-      s += 3
-    end
-    if (d5 == 3)
-      s += 3
-    end
-    return s
-  end
 
   def initialize(d1, d2, d3, d4, _5)
     @dice = [0]*5
@@ -79,36 +60,6 @@ class Yatzy
     @dice[4] = _5
   end
 
-  def fours
-    sum = 0
-    for at in Array 0..4
-      if (@dice[at] == 4)
-        sum += 4
-      end
-    end
-    return sum
-  end
-
-  def fives()
-    s = 0
-    i = 0
-    for i in (Range.new(0, @dice.size))
-      if (@dice[i] == 5)
-        s = s + 5
-      end
-    end
-    s
-  end
-
-  def sixes
-    sum = 0
-    for at in 0..@dice.length
-      if (@dice[at] == 6)
-        sum = sum + 6
-      end
-    end
-    return sum
-  end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)
     counts = [0]*6
