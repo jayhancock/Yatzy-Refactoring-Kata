@@ -32,9 +32,7 @@ class Yatzy
   end
 
   def self.score_pair(*dice)
-    highest = find_pairs(*dice).sort.last
-
-    (highest || 0) * 2
+    n_of_a_kind(2, *dice)
   end
 
   def self.two_pair(*dice)
@@ -58,9 +56,7 @@ class Yatzy
   end
 
   def self.three_of_a_kind(*dice)
-    highest = find_three_of_a_kinds(*dice).sort.last
-
-    (highest || 0) * 3
+    n_of_a_kind(3, *dice)
   end
 
   def self.smallStraight( d1,  d2,  d3,  d4,  d5)
@@ -132,12 +128,14 @@ class Yatzy
     dice.select {|d| d == number}.reduce(0, :+)
   end
 
-  def self.find_pairs(*dice)
-    find_groups(2, *dice)
+  def self.n_of_a_kind(number, *dice)
+    highest = find_groups(number, *dice).sort.last
+
+    (highest || 0) * number
   end
 
-  def self.find_three_of_a_kinds(*dice)
-    find_groups(3, *dice)
+  def self.find_pairs(*dice)
+    find_groups(2, *dice)
   end
 
   def self.find_groups(group_size, *dice)
