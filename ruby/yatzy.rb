@@ -23,15 +23,8 @@ class Yatzy
   end
 
   def self.ones( d1,  d2,  d3,  d4,  d5)
-    sum = 0
     dice = [d1, d2, d3, d4, d5]
-    dice.each do |d|
-      if d == 1
-        sum += 1
-      end
-    end
-
-    sum
+    dice.select {|d| d == 1}.reduce(0, :+)
   end
 
   def self.twos( d1,  d2,  d3,  d4,  d5)
