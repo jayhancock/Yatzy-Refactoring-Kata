@@ -25,20 +25,10 @@ class Yatzy
   def self.ones( d1,  d2,  d3,  d4,  d5)
     sum = 0
     dice = [d1, d2, d3, d4, d5]
-    if (dice[0] == 1)
-      sum += 1
-    end
-    if (dice[1] == 1)
-      sum += 1
-    end
-    if (dice[2] == 1)
-      sum += 1
-    end
-    if (dice[3] == 1)
-      sum += 1
-    end
-    if (dice[4] == 1)
-      sum += 1
+    dice.each do |d|
+      if d == 1
+        sum += 1
+      end
     end
 
     sum
