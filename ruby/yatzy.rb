@@ -22,8 +22,8 @@ class Yatzy
     return 0
   end
 
-  def self.ones( d1,  d2,  d3,  d4,  d5)
-    sames(1, *[d1, d2, d3, d4, d5])
+  def self.ones(*dice)
+    sames(1, *dice)
   end
 
   def self.sames(number, *dice)
