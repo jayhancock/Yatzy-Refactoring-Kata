@@ -32,7 +32,7 @@ class Yatzy
   end
 
   def self.score_pair(*dice)
-    highest = (1..6).select {|i| dice.count(i) >= 2}.uniq.sort.last
+    highest = find_pairs(*dice).sort.last
 
     (highest || 0) * 2
   end
@@ -156,5 +156,9 @@ class Yatzy
 
   def self.sames(number, *dice)
     dice.select {|d| d == number}.reduce(0, :+)
+  end
+
+  def self.find_pairs(*dice)
+    (1..6).select {|i| dice.count(i) >= 2}
   end
 end
