@@ -2,7 +2,7 @@ require_relative 'yatzy'
 require 'test/unit'
 
 class YatzyTest < Test::Unit::TestCase
-  TEST_DATA = [
+  FIVE_DICE = [
     [:chance, [2,3,4,5,1], 15],
     [:chance, [3,3,4,5,1], 16],
     [:yatzy,  [1,1,1,1,1], 50],
@@ -64,7 +64,9 @@ class YatzyTest < Test::Unit::TestCase
     [:full_house, [2,3,4,5,6], 0]
   ]
 
-  TEST_DATA.each do |method, dice, expected|
+  FOUR_DICE = []
+
+  [*FIVE_DICE, *FOUR_DICE].each do |method, dice, expected|
     define_method("test_#{method}_#{dice.join}_#{expected}") do
       assert Yatzy.send(method, *dice) == expected
     end
