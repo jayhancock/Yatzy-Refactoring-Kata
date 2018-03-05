@@ -31,7 +31,7 @@ class Yatzy
     sames(6, *dice)
   end
 
-  def self.score_pair(*dice)
+  def self.one_pair(*dice)
     n_of_a_kind(2, *dice)
   end
 
